@@ -1,0 +1,102 @@
+.btn-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all $dur--s;
+  user-select: none;
+  width: 100%;
+  padding: 0;
+  flex-shrink: unset;
+
+  font-size: rem-calc(14px);
+  line-height: rem-calc(20px);
+  font-weight: 500;
+  
+  padding: 6px $gut--n;
+  &.dense {
+    padding: 4px $gut--s;
+  }
+  &.no-focus {
+    box-shadow: none;
+  }
+  /* &.btn_secondary {
+    box-shadow: none;
+    color: $c--primary;
+    background-color: rgba($c--primary, .16);
+    &:hover {
+      box-shadow: none;
+      // color: $c--primary;
+      background-color: rgba($c--primary, .12);
+    }
+    &:active {
+      box-shadow: none;
+      // color: $c--primary;
+      background-color: rgba($c--primary, .24);
+    }
+    &:disabled,
+    &[disabled] {
+      opacity: .5;
+    }
+  } */
+  &.btn_default {
+    color: $c--primary;
+    border-radius: $br--btn;
+    background-color: rgba($c--primary, .1);
+    &:active {
+      background-color: rgba($c--primary, .2);
+    }
+    &:disabled,
+    &[disabled] {
+      background-color: $c--dark-disabled;
+      color: $c--dark-secondary;
+    }
+  }
+  &.btn_modal {
+    color: $c--btn-primary;
+    background-color: rgba($c--primary, .2);
+    &:hover {
+      color: $c--btn-primary_hover;
+      background-color: rgba($c--primary, .1);
+    }
+    >.icon {
+      margin-right: $gut--s;
+    }
+  }
+  &_media-comments {
+    color: $c--btn-primary;
+    background-color: transparent;
+    &:hover {
+      color: #fff;
+      background-color: $c--btn-primary;
+    }
+  }
+  &.btn_global-search {
+    color: #fff;
+    background-color: $c--btn-primary;
+    padding: 0 10px;
+    justify-content: space-between;
+    &:hover {
+      background-color: #64B5F6;
+    }
+  }
+  &__counter {
+    margin: 0 5px;
+  }
+  .counter {
+    display: contents;
+  }
+  &.btn_separate {
+    border-top: 1px solid $c--dark-border;
+    height: 37px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    &:first-child {
+      border-bottom: 1px solid $c--dark-border;
+      border-top: 0;
+      border-top-left-radius: 3px;
+      border-top-right-radius: 3px;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+}

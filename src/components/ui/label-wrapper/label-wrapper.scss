@@ -1,0 +1,17 @@
+.n-label-wrapper {
+  &.is-error {
+    .n-field__bottom {
+      color: rgba($c--danger, .84);
+    }
+  }
+  &.is-success {
+    .n-field__bottom {
+      color: rgba($c--success, .84);
+    }
+  }
+  &.is-warning {
+    .n-field__bottom {
+      color: rgba($c--warning, .84);
+    }
+  }
+}

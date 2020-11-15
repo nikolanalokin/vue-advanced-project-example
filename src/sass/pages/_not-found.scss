@@ -1,0 +1,13 @@
+.not-found-header {
+  color: white;
+  @include textGlitch('glitch__title', 10, white, transparent, white, white, 300, 40);
+}
+.__logo-svg-container {
+  position: relative;
+  height: 100px;
+  width: 200px;
+  @include svgGlitch("glitch__logo", 10, white, transparent, white, white, 200, 100, 0, 0);
+  .__logo-svg {
+    width: 100%;
+  }
+}

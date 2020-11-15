@@ -1,0 +1,45 @@
+.n-select {
+  &_without-input {
+    .n-field__control {
+      cursor: pointer;
+    }
+  }
+  &_with-input {
+    .n-field__control {
+      cursor: text;
+    }
+  }
+
+  &__input {
+    border: 0;
+    outline: 0 !important; // needed for FF
+    background: transparent;
+    min-width: 50px !important;
+    padding: 0;
+    height: 0;
+    min-height: 20px;
+    line-height: 20px;
+    &_padding {
+      padding-left: 4px;
+    }
+  }
+
+
+  &__dropdown-icon {
+    cursor: pointer;
+  }
+
+  &__dialog {
+    width: 90vw !important;
+    max-width: 90vw !important;
+    max-height: calc(100vh - 70px) !important;
+    background: white;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__menu_dark {
+    color: white;
+    background: $grey-9;
+  }
+}

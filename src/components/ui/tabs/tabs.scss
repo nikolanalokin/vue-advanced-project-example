@@ -1,0 +1,72 @@
+.n-tabs {
+  display: flex;
+  align-items: stretch;
+  position: relative;
+  &.align_left {
+    justify-content: flex-start;
+  }
+  &.align_right {
+    justify-content: flex-end;
+  }
+  &.align_center {
+    justify-content: center;
+  }
+  &.align_justify {
+    width: 100%;
+    justify-content: stretch;
+  }
+  &.align_justify &__item {
+    width: 100%;
+  }
+}
+.n-tabs__item {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  height: 48px;
+  padding: 0 $gut--s;
+  outline: 0;
+  outline-offset: 0;
+  border: 0;
+  text-transform: none;
+  text-decoration: none;
+  overflow-x: hidden;
+  white-space: nowrap;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  user-select: none;
+  cursor: pointer;
+  @include text-body-n;
+  color: $c--dark-secondary;
+  transition: color $dur--s;
+  &.is-active {
+    @include text-body-n-bold;
+    color: currentColor;
+    /* &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background-color: $c--dark-primary;
+    } */
+  }
+  &:not(.is-active):hover {
+    color: currentColor;
+  }
+}
+.n-tabs__counter {
+  // margin-left: 6px;
+  color: $c--dark-secondary;
+}
+
+.n-tabs__slider {
+  position: absolute;
+  bottom: 0;
+  height: 2px;
+  background-color: $c--dark-primary;
+  transition: left $dur--n $tf--ease_out, width $dur--n $tf--ease_out;
+}

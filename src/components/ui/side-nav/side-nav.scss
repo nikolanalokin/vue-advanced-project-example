@@ -1,0 +1,110 @@
+$item_pad_left: 20px;
+$subitem_pad_left: 30px;
+$sel_border: 2px;
+
+.side-nav {
+  position: relative;
+  margin-right: -1px;
+  &.is-sticky {
+    position: sticky;
+    top: 112px;
+  }
+  &__section {
+    overflow-y: hidden;
+    max-height: 0;
+    transition: max-height $dur--l;
+    margin-left: -1px;
+    &.opened {
+      max-height: 750px;
+    }
+    .side-nav__item {
+      margin-left: 0;
+    }
+  }
+  &__counter {
+    min-width: 20px;
+    text-align: end;
+  }
+  &__button {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    right: 10px;
+    height: 100%;
+    transition: none;
+    > .icon {
+      font-size: 16px;
+    }
+  }
+  .select-line {
+    position: absolute;
+    height: 30px;
+    width: 2px;
+    top: 0;
+    left: 0;
+    background-color: #000;
+  }
+}
+
+$item_pad_left: 16px;
+$subitem_pad_left: 24px;
+$sel_border: 2px;
+
+.side-nav-item {
+  display: flex;
+  position: relative;
+  @include text-body-n;
+  color: $c--dark-primary;
+  width: 100%;
+  padding: $gut--s;
+  padding-left: $item_pad_left - $sel_border;
+  padding-right: $gut--n;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+  border-left: $sel_border solid transparent;
+  margin-left: -1px;
+  // border-radius: 0 $br--main $br--main 0;
+  &_subitem {
+    padding-left: $subitem_pad_left - $sel_border;
+    &.active {
+      border-color: $c--dark-primary;
+      background-color: $c--dark-flash;
+      @include text-body-n-bold;
+      color: $c--dark-primary;
+    }
+  }
+  &__badge {
+    display: flex;
+    flex-shrink: 0;
+    margin-left: auto;
+    &:empty {
+      display: none;
+    }
+  }
+  &.inactive {
+    cursor: default;
+    color: $c--dark-secondary;
+    background-color: transparent;
+    &:hover {
+      background-color: transparent;
+    }
+  }
+  // &:hover:not(.active) {
+  //   border-radius: $br--main;
+  // }
+  &:hover {
+    background-color: $c--dark-flash;
+  }
+  &.active {
+    color: $c--dark-primary;
+    border-color: $c--dark-primary;
+    background-color: $c--dark-flash;
+    font-weight: 700;
+  }
+  > span {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+}

@@ -1,0 +1,101 @@
+$btn--padding: 8px 12px
+$btn--font-size: 14px
+$btn--line-height: 1.7142em
+$btn--font-weight: 500
+$btn--transition: easy
+$btn--border-radius: 5px
+$btn--dense-padding: 4px
+
+  
+.n-btn
+  display: inline-flex
+  position: relative
+  outline: 0
+  border: 0
+  vertical-align: middle
+  cursor: pointer
+  padding: $btn--padding
+  font-size: $btn--font-size
+  line-height: $btn--line-height
+  text-decoration: none
+  color: inherit
+  background: transparent
+  transition: $btn--transition
+  min-height: 2.572em
+  font-weight: $btn--font-weight
+  -webkit-appearance: none
+  
+  .n-icon, .n-spinner
+    font-size: $btn--line-height
+
+  &.disabled
+    opacity: .7 !important
+
+  &--standard:not(.disabled)
+    &:before
+      // This places the button active raise shadow behind adjacent elements
+      // Active raise shadow will still be visible under adjacent transparent elements, this is ok and coherent with a desired transparency effect.
+      // Visible active raise shadow can be removed by specifying a background color to the button
+      // Visible active raise shadow can be removed by specifying a flat or outline button type
+      content: ''
+      position: absolute
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
+      border-radius: inherit
+      transition: $btn--transition
+
+  &--rectangle
+    border-radius: $btn--border-radius
+
+  &--outline
+    border: 1px solid currentColor
+    background: transparent !important
+
+  &--round
+    border-radius: 50%
+    padding: 0
+    min-height: 0
+    height: 3em
+    width: 3em
+    min-width: 3em
+    min-height: 3em
+
+  &--dense
+    padding: $btn--dense-padding
+    min-height: 2em
+    &.n-btn--round
+      padding: 0
+      height: 2.4em
+      width: 2.4em
+      min-height: 2.4em
+      min-width: 2.4em
+    .on-left
+      margin-right: 6px
+    .on-right
+      margin-left: 6px
+
+  &--is-rounded
+    border-radius: 16px
+
+  // workaround for alignment/sizing change when showing loader
+  &__content
+    transition: opacity .3s
+    &--hidden
+      opacity: 0
+    &:before
+      content: ''
+
+  &__progress
+    transition: transform .3s
+    transform-origin: top left
+    height: 100%
+    background: rgba(255, 255, 255, .25)
+    &--dark
+      background: rgba(0, 0, 0, .2)
+
+button.n-btn
+  // -webkit-appearance: button
+a.n-btn
+  display: inline-flex

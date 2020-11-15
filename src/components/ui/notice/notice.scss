@@ -1,0 +1,42 @@
+.notice {
+  @include text-body-n;
+  p {
+    @include text-body-n;
+  }
+  padding: $gut--s $gut--n;
+  width: 100%;
+  border-radius: $br--main;
+  // border-radius: 0 $br--main $br--main 0;
+  overflow: hidden;
+  
+  // border-left: 3px solid;
+
+  color: pattern-color-level($c--dark, 46);
+  border-color: pattern-color-level($c--dark, 46);
+  background-color: pattern-color-level($c--dark, 88);
+  &.info {
+    color: pattern-color-level($c--primary, -30);
+    border-color: $c--primary;
+    background-color: pattern-color-level($c--primary, 80);
+  }
+  &.danger,
+  &.error {
+    color: pattern-color-level($c--danger, -20);
+    border-color: $c--danger;
+    background-color: pattern-color-level($c--danger, 80);
+  }
+  &.warning,
+  &.warn {
+    color: pattern-color-level($c--warning, -50);
+    border-color: $c--warning;
+    background-color: pattern-color-level($c--warning, 70);
+  }
+  &.success {
+    color: pattern-color-level($c--success, -30);
+    border-color: $c--success;
+    background-color: pattern-color-level($c--success, 80);
+  }
+  &+& {
+    margin-top: 10px;
+  }
+}

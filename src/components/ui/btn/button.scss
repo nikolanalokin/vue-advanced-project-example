@@ -1,0 +1,272 @@
+$c--btn-default: $c--dark-tertiary;
+$c--btn-default_hover: darken($c--btn-default, 10);
+$c--btn-default_active: darken($c--btn-default, 20);
+$c--btn-default_text_disabled: lighten($c--light-primary, 20);
+$c--btn-default_bg_disabled: lighten($c--btn-default, 20);
+
+$c--btn-primary: $c--primary;
+$c--btn-primary_hover: darken($c--btn-primary, 10);
+$c--btn-primary_active: darken($c--btn-primary, 20);
+$c--btn-primary_text_disabled: lighten($c--light-primary, 20);
+$c--btn-primary_bg_disabled: lighten($c--btn-primary, 20);
+
+// $c--btn-secondary: ;
+// $c--btn-secondary_hover: darken($c--btn-secondary, 10);
+// $c--btn-secondary_active: lighten($c--btn-secondary, 10);
+// $c--btn-secondary_text_disabled: darken($c--btn-secondary, 10);
+// $c--btn-secondary_bg_disabled: darken($c--btn-secondary, 10);
+
+$c--btn-danger: $c--danger;
+$c--btn-danger_hover: darken($c--btn-danger, 10);
+$c--btn-danger_active: darken($c--btn-danger, 20);
+$c--btn-danger_text_disabled: lighten($c--light-primary, 20);
+$c--btn-danger_bg_disabled: lighten($c--btn-danger, 20);
+
+$c--btn-success: $c--success;
+$c--btn-success_hover: darken($c--btn-success, 10);
+$c--btn-success_active: darken($c--btn-success, 20);
+$c--btn-success_text_disabled: lighten($c--light-primary, 20);
+$c--btn-success_bg_disabled: lighten($c--btn-success, 20);
+
+$c--btn-warning: $c--warning;
+$c--btn-warning_hover: darken($c--btn-warning, 10);
+$c--btn-warning_active: darken($c--btn-warning, 20);
+$c--btn-warning_text_disabled: lighten($c--light-primary, 20);
+$c--btn-warning_bg_disabled: lighten($c--btn-warning, 20);
+
+$c--btn-link: $c--dark-primary;
+$c--btn-link_hover: $c--dark-flash;
+$c--btn-link_active: $c--dark-active;
+$c--btn-link_text_disabled: $c--dark-secondary;
+$c--btn-link_bg_disabled: rgba($c--dark, .12);
+
+.btn {
+  outline: 0;
+  outline-offset: 0;
+  border: none;
+  text-transform: none;
+  letter-spacing: normal;
+  cursor: pointer;
+  user-select: none;
+  background-color: transparent;
+  flex-shrink: 0;
+  appearance: none;
+  position: relative;
+  display: inline-flex;
+  &:focus {
+    outline: none;
+    &__content {
+      box-shadow: $bs--aura;
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+  &.has-leading-icon {
+    .btn__content {
+      padding-left: $gut--s;
+    }
+  }
+  &_grid {
+    grid-column: 1 / -1;
+  }
+  &.btn_primary {
+    border-radius: $br--btn;
+    color: $c--light-primary;
+    background-color: $c--btn-primary;
+    &:active {
+      background-color: $c--btn-primary_active;
+    }
+    &:disabled,
+    &.disabled,
+    &[disabled] {
+      opacity: .7;
+      /* background-color: $c--btn-primary_bg_disabled;
+      &:active {
+        background-color: $c--btn-primary_bg_disabled;
+      } */
+    }
+  }
+  &.btn_secondary,
+  &.btn_confirm,
+  &.btn_danger,
+  &.btn_warning,
+  &.btn_link {
+    border-radius: $br--btn;
+    background-color: $c--input-bg;
+    @include theme('dark', 'background-color', $c--input-bg_light);
+    &:hover {
+      background-color: $c--input-bg_hover;
+      @include theme('dark', 'background-color', $c--input-bg_hover_light);
+    }
+    &:active {
+      background-color: $c--input-bg_active;
+      @include theme('dark', 'background-color', $c--input-bg_active_light);
+    }
+    &:disabled,
+    &.disabled,
+    &[disabled] {
+      opacity: .7;
+      /* background-color: $c--input-bg_disabled;
+      @include theme('dark', 'background-color', $c--input-bg_disabled_light);
+      &:hover,
+      &:active {
+        background-color: $c--input-bg_disabled;
+        @include theme('dark', 'background-color', $c--input-bg_disabled_light);
+      } */
+    }
+  }
+  &.btn_secondary {
+    color: $c--btn-primary;
+    &:hover {
+      color: $c--btn-primary_hover;
+    }
+    &:active {
+      color: $c--btn-primary_active;
+    }
+  }
+  &.btn_confirm {
+    color: $c--btn-success;
+    &:hover {
+      color: $c--btn-success_hover;
+    }
+    &:active {
+      color: $c--btn-success_active;
+    }
+  }
+  &.btn_danger {
+    color: $c--btn-danger;
+    &:hover {
+      color: $c--btn-danger_hover;
+    }
+    &:active {
+      color: $c--btn-danger_active;
+    }
+  }
+  &.btn_warning {
+    color: $c--btn-warning;
+    &:hover {
+      color: $c--btn-warning_hover;
+    }
+    &:active {
+      color: $c--btn-warning_active;
+    }
+  }
+  &.btn_link {
+    color: $c--dark-primary;
+  }
+  &.btn_shadow {
+    color: $c--light-primary;
+    text-shadow: $text-shadow-main;
+    transition: transform $dur--s, text-shadow $dur--s, color $dur--s;
+    &:hover {
+      color: $c--light-primary_hover;
+    }
+    &:active {
+      text-shadow: 0;
+      transform: translateY(2px);
+    }
+  }
+
+  &.btn_comment {
+    color: $c--dark-tertiary;
+    &:hover {
+      color: $c--dark-secondary;
+      background-color: $c--dark-flash;
+    }
+  }
+  &.btn_sharepost {
+    color: $c--dark-tertiary;
+    &:hover {
+      color: #64B5F6;
+      background-color: $c--dark-flash;
+    }
+    &.button_selected,
+    &.selected {
+      color: rgb(33, 150, 243);
+    }
+  }
+  &.btn_like {
+    color: $c--dark-tertiary;
+    @include theme('dark', 'color', $c--light-secondary);
+    &:active {
+      color: #E57373;
+      background-color: $c--dark-active;
+      @include theme('dark', 'background-color', $c--light-active);
+    }
+    &.btn_shadow {
+      color: $c--light-primary;
+      &:hover {
+        color: #E57373;
+        background: none;
+      }
+    }
+    &.selected {
+      color: rgb(244, 67, 54);
+    }
+  }
+}
+
+.btn-link {
+  padding: 0;
+  @include text-body-n;
+  &:hover {
+    // text-decoration: underline;
+  }
+  color: $c--primary;
+  // @include theme('dark', 'color', $c--light-primary);
+}
+
+.btn:focus,
+.btn__content:focus {
+  outline: none;
+}
+
+.btn__loader {
+  margin: 0 auto;
+}
+
+.btn {
+  &_block {
+    width: 100%;
+  }
+}
+
+a.btn {
+  display: inline-flex;
+}
+
+
+.file-input {
+  display: none;
+}
+
+@import "./text";
+@import "./icon";
+@import "./block";
+@import "./cover";
+
+
+.btn-cover__loader {
+  z-index: 2;
+  @include absolute_full;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba($c--light, .8);
+}
+
+@import "./btn";
+
+.n-btn-add {
+  position: relative;
+  cursor: pointer;
+  border: 2px dashed $c--dark-border;
+  &__overlay {
+    background: $c--transparent;
+    transition: background $dur--s;
+  }
+  &:hover &__overlay {
+    background: $c--dark-flash;
+  }
+}

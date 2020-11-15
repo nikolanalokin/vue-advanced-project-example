@@ -1,0 +1,26 @@
+.profile-cover-bottom {
+  display: flex;
+  align-items: center;
+  min-height: 160px / 2 + 16px;
+  &.has-cover {
+    position: relative;
+  }
+}
+.profile-cover-bottom__avatar {
+  padding: 16px 24px;
+  .has-cover & {
+    padding: 0 0 16px 24px;
+    position: absolute;
+    bottom: 0;
+  }
+}
+.profile-cover-bottom__title {
+  width: 100%;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-right: 16px;
+  .has-cover & {
+    padding-top: 12px;
+    padding-left: 160px + 2 * 24px;
+  }
+}

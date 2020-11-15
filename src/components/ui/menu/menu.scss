@@ -1,0 +1,14 @@
+.n-menu {
+  position: fixed !important;
+  display: inline-block;
+  // max-width: 300px;
+
+  box-shadow: $elav--2;
+  background: white;
+  border-radius: $br--main;
+  overflow-y: auto;
+  overflow-x: hidden;
+  outline: 0;
+  max-height: 65vh;
+  z-index: $z--dropdown;
+}

@@ -1,0 +1,158 @@
+.n-btn {
+  display: inline-flex;
+  position: relative;
+  outline: 0;
+  border: 0;
+  outline-offset: 0;
+  border: none;
+  text-transform: none;
+  letter-spacing: normal;
+  user-select: none;
+  color: inherit;
+  vertical-align: middle;
+  background: transparent;
+  flex-shrink: 0;
+  appearance: none;
+  cursor: pointer;
+  @include text-button;
+  
+  white-space: nowrap;
+  border-radius: $br--btn;
+  
+  padding: 6px;
+
+  &.is-round {
+    border-radius: 50%;
+  }
+
+  .on-left {
+    margin-right: 8px;
+  }
+  .on-right {
+    margin-left: 8px;
+  }
+  
+  /* &.has-leading-icon {
+    padding-left: 10px;
+    &.is-dense {
+      padding-left: 6px;
+    }
+  }
+  &.has-trailing-icon {
+    padding-right: 10px;
+    &.is-dense {
+      padding-right: 6px;
+    }
+  } */
+
+  &.is-dense {
+    padding: 3px;
+    .on-left {
+      margin-right: 6px;
+    }
+    .on-right {
+      margin-left: 6px;
+    }
+  }
+
+  &.has-label {
+    padding: 6px 12px;
+    &.is-dense {
+      padding: 3px 6px;
+    }
+  }
+
+  &.is-rounded {
+    border-radius: 18px;
+  }
+
+
+  &.is-disabled {
+    opacity: .7 !important;
+  }
+
+  &.is-flat {
+
+  }
+
+  &.is-dense {
+
+  }
+
+  &.is-hover-label {
+    transition: width $dur--s, padding $dur--s;
+    &.has-label {
+      padding: 6px;
+      &.is-dense {
+        padding: 3px;
+      }
+    }
+    .n-btn__label {
+      opacity: 0;
+      visibility: hidden;
+      transition: $dur--s;
+    }
+    .n-icon {
+      margin: 0 !important;
+      transition: margin $dur--s;
+    }
+    &.is-hovered {
+      &.has-label {
+        padding: 6px 12px;
+        &.is-dense {
+          padding: 3px 6px;
+        }
+      }
+      .n-btn__label {
+        opacity: 1;
+        visibility: visible;
+      }
+      .n-icon {
+        margin: initial;
+      }
+    }
+  }
+
+  .n-btn__click-helper {
+    content: '';
+    z-index: 0;
+    @include absolute-full;
+    border-radius: inherit;
+    pointer-events: none;
+  }
+  
+  &.is-clicked {
+    .n-btn__click-helper {
+      display: block;
+      animation: a-btn-click .4s linear normal backwards;
+    }
+  }
+
+  @keyframes a-btn-click {
+    0% {
+      opacity: .22;
+      box-shadow: 0 0 0 1px currentColor;
+    }
+    100% {
+      opacity: 0;
+      box-shadow: 0 0 0 5px currentColor;
+    }
+  }
+
+
+  &.is-loading {
+    .n-btn__content {
+      opacity: 0;
+    }
+  }
+
+  
+  .n-icon, .n-spinner {
+    font-size: 1.715em;
+  }
+}
+
+.n-btn__content {
+  transition: opacity $dur--s;
+  text-align: center;
+}

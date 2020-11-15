@@ -1,0 +1,60 @@
+.n-calendar {
+  width: 296px;
+  padding: $gut--s;
+  border-radius: $br--main;
+  box-shadow: $bs--border-outer;
+}
+
+.n-calendar__header {}
+
+.n-calendar__body {
+  padding-top: $gut--s;
+}
+
+.n-calendar-table__title {
+  padding: $gut--s 0;
+
+  >span {
+    width: calc(100% / 7);
+    @include text-body-n;
+    text-align: center;
+  }
+}
+
+.n-calendar-table__btn {
+  flex: 100 0 0%;
+  text-align: center;
+  @include text-body-n;
+  padding: $gut--s $gut--xs;
+  border-radius: $br--main;
+  cursor: pointer;
+  transition: background $dur--s, color $dur--s;
+
+  &:not(.is-disabled):hover {
+    background: $c--dark-flash;
+    color: initial;
+  }
+
+  &.is-disabled {
+    cursor: default;
+    opacity: .6;
+  }
+
+  &.is-another-month {
+    color: $c--dark-tertiary;
+  }
+
+  &.is-now {
+    background: rgba($c--primary, .16);
+  }
+
+  &.is-selected {
+    background: $c--primary;
+    color: white;
+
+    &:hover {
+      background: $c--primary;
+      color: white;
+    }
+  }
+}

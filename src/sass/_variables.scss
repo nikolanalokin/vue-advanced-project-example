@@ -1,0 +1,242 @@
+$pattern-colors: ( 
+  primary:    #5969fe,//rgb(0, 0, 238),//#717bd3,
+  secondary:  #f37f21,
+  danger:     #f3212b,
+  success:    #4caf50,
+  warning:    #f3e821,
+  dark:       #191919,
+  light:      #ffffff,
+  admin:      #f32194,
+  info:       #5969fe
+);
+
+@function pattern-color($key: 'primary') {
+  @return map-get($pattern-colors, $key)
+};
+
+@function pattern-color-level($color, $level: 0) {
+  $color-base: if($level < 0, black, white);
+  $procent: abs($level);
+
+  @return mix($color-base, $color, $procent)
+};
+
+$c--primary                  : pattern-color(primary);
+$c--secondary                : pattern-color(secondary);
+$c--danger                   : pattern-color(danger);
+$c--warning                  : pattern-color(warning);
+$c--success                  : pattern-color(success);
+$c--admin                    : pattern-color(admin);
+$c--dark                     : pattern-color(dark);
+$c--light                    : pattern-color(light);
+$c--info                     : pattern-color(info);
+
+$c--skelet                   : $grey-4;
+$c--skelet-primary           : $grey-4;
+$c--skelet-secondary         : $grey-3;
+$c--skelet-tertiary          : $grey-2;
+
+$c--light-primary            : rgba(#ffffff, 1);
+$c--light-primary_hover      : rgba(#ffffff, .8);
+$c--light-secondary          : rgba(#ffffff, .70);
+$c--light-tertiary           : rgba(#ffffff, .50);
+$c--light-disabled           : rgba(#ffffff, .40);
+$c--light-hint               : rgba(#ffffff, .12);
+$c--light-flash              : rgba(#ffffff, .16);
+$c--light-active             : rgba(#ffffff, .08);
+$c--light-border             : rgba(#ffffff, .16);
+$c--light-overlay            : rgba(#ffffff, .50);
+
+$c--dark-primary             : rgba(#000000, 1);
+$c--dark-primary-hover       : rgba(#000000, .8);
+$c--dark-secondary           : rgba(#000000, .64);
+$c--dark-tertiary            : rgba(#000000, .46);
+$c--dark-disabled            : rgba(#000000, .20);
+$c--dark-hint                : rgba(#000000, .12);
+$c--dark-flash               : rgba(#000000, .08);
+$c--dark-active              : rgba(#000000, .16);
+$c--dark-border              : rgba(#000000, .09);
+$c--dark-overlay             : rgba(#000000, .50);
+
+$c--transparent              : rgba($c--dark, 0);
+
+$c--offline                  : $grey-5;
+$c--online                   : $light-green-8;
+$c--online-light             : $lime-6;
+$c--close-soon               : $deep-purple-6;
+$c--day-off                  : $amber-8;
+$c--closed                   : $red-6;
+
+$c--block                    : #f6f8f9;
+
+$c--input-bg                 : rgba($c--dark, .06);
+$c--input-bg_hover           : rgba($c--dark, .08);
+$c--input-bg_active          : rgba($c--dark, .12);
+$c--input-bg_disabled        : rgba($c--dark, .16);
+
+$c--input-bg_light           : rgba($c--light, .06);
+$c--input-bg_hover_light     : rgba($c--light, .12);
+$c--input-bg_active_light    : rgba($c--light, .18);
+$c--input-bg_disabled_light  : rgba($c--light, .24);
+
+$c--bg-site: hsl(30, 10%, 98%);
+$c--bg-im_page: #fafafa;
+
+$br--main: 8px;
+$br--input: 4px;
+$br--btn: 4px;
+
+$bs--border-outer: 0 0 0 1px $c--dark-border;
+$bs--border-inner: inset 0 0 0 1px $c--dark-border;
+$bs--focus: 0 0 0 2px rgba($c--primary, .5);
+
+$bs--elav-light: 0 1px 2px 0 rgba(60,64,67,0.3), 0 2px 6px 2px rgba(60,64,67,0.15);
+$bs--elav: 0 0 3px 0 rgba($c--primary, .3), 0 1px 2px 1px rgba($c--primary, .2);
+
+$bs--aura: 0 0 2px -1px rgba(black,.2), 0 0 1px 0 rgba(black,.14), 0 0 3px 0 rgba(black,.12);
+$bs--selected: 0 0 0 3px $c--secondary;
+
+$bs--fx-hover: 0 5px 10px 0 rgba($c--dark, 0.24), 0 10px 20px 0px rgba($c--dark, 0.12);
+$bs--fx-hover_music-track: 0 5px 10px 0 rgba($c--dark, 0.24);
+
+$gutters: ( 'xs': 4px, 'sm':  8px, 'md':  16px, 'lg':  24px, 'xl': 48px );
+$directions: ('t': 'top','l': 'left','b': 'bottom','r': 'right');
+
+$gut--xs: 4px;
+$gut--s: 8px;
+$gut--n: 16px;
+$gut--l: 24px;
+$gut--xl: 48px;
+
+$curie--main: cubic-bezier(0.77, 0, 0.175, 1);
+$curie--input: cubic-bezier(0.77, 0, 0.175, 1);
+
+$tf--ease_in: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+$tf--ease_out: cubic-bezier(0.215, 0.61, 0.355, 1);
+$tf--ease_in_out: cubic-bezier(0.645, 0.045, 0.355, 1);
+
+$dur--xs: 0.1s;
+$dur--s: 0.2s;
+$dur--n: 0.3s;
+$dur--l: 0.6s;
+$dur--xl: 1s;
+
+$w--narrow: 320px;
+$w--normal: 480px;
+$w--wide: 720px;
+$w--container: 960px;
+
+$fs--title: 21px;
+$fs--subtitle: 16px;
+$fs--head: 16px;
+$fs--subhead: 14px;
+$fs--body: 14px;
+$fs--btn: 14px;
+
+$fs--base: 16px;
+
+$fw--title: 500;
+$fw--subtitle: 400;
+$fw--head: 500;
+$fw--subhead: 400;
+$fw--body: 400;
+$fw--btn: 400;
+
+$h--header: 50px;
+$h--pageNav: 48px;
+$h--pageNav-sub: 30px;
+$h--footer: 40px;
+
+$z--page-nav         :20;
+$z--header-search    :50;
+$z--header           :30;
+$z--footer           :30;
+$z--notifications    :1000;
+$z--modal            :950;
+$z--viewer           :900;
+$z--music-player     :800; //1100
+$z--dropdown         :1000;
+$z--tooltip          :1000;
+$z--sorting          :100;
+$z--input            :100;
+$z--fullscreen       :100;
+$z--max              :100000;
+
+
+$dimmed-background       : rgba(0, 0, 0, .4);
+$light-dimmed-background : rgba(255, 255, 255, .6);
+
+$separator-color         : rgba(0, 0, 0, .12);
+$separator-dark-color    : rgba(255, 255, 255, .48);
+
+// box-shadow (elavation)
+$elav--0: 0 0 0 0 rgba(black, 0.2), 0 0 0 0 rgba(black, 0.14), 0 0 0 0 rgba(black, 0.12);
+$elav--1: 0 2px 1px -1px rgba(black,.2), 0 1px 1px 0 rgba(black,.14), 0 1px 3px 0 rgba(black,.12);
+$elav--2: 0 3px 1px -2px rgba(black, 0.2), 0 2px 2px 0 rgba(black, 0.14), 0 1px 5px 0 rgba(black, 0.12);
+$elav--4: 0 2px 4px -1px rgba(black, 0.2), 0 4px 5px 0 rgba(black, 0.14), 0 1px 10px 0 rgba(black, 0.12);
+$elav--6: 0 3px 5px -1px rgba(black, 0.2), 0 6px 10px 0 rgba(black, 0.14), 0 1px 18px 0 rgba(black, 0.12);
+$elav--8: 0 5px 5px -3px rgba(black, 0.2), 0 8px 10px 1px rgba(black, 0.14), 0 3px 14px 2px rgba(black, 0.12);
+$elav--16: 0 8px 10px -5px rgba(black, 0.2), 0 16px 24px 2px rgba(black, 0.14), 0 6px 30px 5px rgba(black, 0.12);
+
+
+$shadow-color         : black;
+$shadow-transition    : box-shadow .28s cubic-bezier(.4, 0, .2, 1);
+$inset-shadow         : 0 7px 9px -7px rgba($shadow-color, .7) inset;
+
+$elevation-umbra      : rgba($shadow-color, .2);
+$elevation-penumbra   : rgba($shadow-color, .14);
+$elevation-ambient    : rgba($shadow-color, .12);
+
+$shadow-0  : 0 0 0 $elevation-umbra, 0 0 0 $elevation-penumbra, 0 0 0 $elevation-ambient;
+$shadow-1  : 0 1px 3px $elevation-umbra, 0 1px 1px $elevation-penumbra, 0 2px 1px -1px $elevation-ambient;
+$shadow-2  : 0 1px 5px $elevation-umbra, 0 2px 2px $elevation-penumbra, 0 3px 1px -2px $elevation-ambient;
+$shadow-3  : 0 1px 8px $elevation-umbra, 0 3px 4px $elevation-penumbra, 0 3px 3px -2px $elevation-ambient;
+$shadow-4  : 0 2px 4px -1px $elevation-umbra, 0 4px 5px $elevation-penumbra, 0 1px 10px $elevation-ambient;
+$shadow-5  : 0 3px 5px -1px $elevation-umbra, 0 5px 8px $elevation-penumbra, 0 1px 14px $elevation-ambient;
+$shadow-6  : 0 3px 5px -1px $elevation-umbra, 0 6px 10px $elevation-penumbra, 0 1px 18px $elevation-ambient;
+$shadow-7  : 0 4px 5px -2px $elevation-umbra, 0 7px 10px 1px $elevation-penumbra, 0 2px 16px 1px $elevation-ambient;
+$shadow-8  : 0 5px 5px -3px $elevation-umbra, 0 8px 10px 1px $elevation-penumbra, 0 3px 14px 2px $elevation-ambient;
+$shadow-9  : 0 5px 6px -3px $elevation-umbra, 0 9px 12px 1px $elevation-penumbra, 0 3px 16px 2px $elevation-ambient;
+$shadow-10 : 0 6px 6px -3px $elevation-umbra, 0 10px 14px 1px $elevation-penumbra, 0 4px 18px 3px $elevation-ambient;
+$shadow-11 : 0 6px 7px -4px $elevation-umbra, 0 11px 15px 1px $elevation-penumbra, 0 4px 20px 3px $elevation-ambient;
+$shadow-12 : 0 7px 8px -4px $elevation-umbra, 0 12px 17px 2px $elevation-penumbra, 0 5px 22px 4px $elevation-ambient;
+$shadow-13 : 0 7px 8px -4px $elevation-umbra, 0 13px 19px 2px $elevation-penumbra, 0 5px 24px 4px $elevation-ambient;
+$shadow-14 : 0 7px 9px -4px $elevation-umbra, 0 14px 21px 2px $elevation-penumbra, 0 5px 26px 4px $elevation-ambient;
+$shadow-15 : 0 8px 9px -5px $elevation-umbra, 0 15px 22px 2px $elevation-penumbra, 0 6px 28px 5px $elevation-ambient;
+$shadow-16 : 0 8px 10px -5px $elevation-umbra, 0 16px 24px 2px $elevation-penumbra, 0 6px 30px 5px $elevation-ambient;
+$shadow-17 : 0 8px 11px -5px $elevation-umbra, 0 17px 26px 2px $elevation-penumbra, 0 6px 32px 5px $elevation-ambient;
+$shadow-18 : 0 9px 11px -5px $elevation-umbra, 0 18px 28px 2px $elevation-penumbra, 0 7px 34px 6px $elevation-ambient;
+$shadow-19 : 0 9px 12px -6px $elevation-umbra, 0 19px 29px 2px $elevation-penumbra, 0 7px 36px 6px $elevation-ambient;
+$shadow-20 : 0 10px 13px -6px $elevation-umbra, 0 20px 31px 3px $elevation-penumbra, 0 8px 38px 7px $elevation-ambient;
+$shadow-21 : 0 10px 13px -6px $elevation-umbra, 0 21px 33px 3px $elevation-penumbra, 0 8px 40px 7px $elevation-ambient;
+$shadow-22 : 0 10px 14px -6px $elevation-umbra, 0 22px 35px 3px $elevation-penumbra, 0 8px 42px 7px $elevation-ambient;
+$shadow-23 : 0 11px 14px -7px $elevation-umbra, 0 23px 36px 3px $elevation-penumbra, 0 9px 44px 8px $elevation-ambient;
+$shadow-24 : 0 11px 15px -7px $elevation-umbra, 0 24px 38px 3px $elevation-penumbra, 0 9px 46px 8px $elevation-ambient;
+
+$shadow-up-0  : 0 0 0 $elevation-umbra, 0 0 0 $elevation-penumbra, 0 0 0 $elevation-ambient;
+$shadow-up-1  : 0 -1px 3px $elevation-umbra, 0 -1px 1px $elevation-penumbra, 0 -2px 1px -1px $elevation-ambient;
+$shadow-up-2  : 0 -1px 5px $elevation-umbra, 0 -2px 2px $elevation-penumbra, 0 -3px 1px -2px $elevation-ambient;
+$shadow-up-3  : 0 -1px 8px $elevation-umbra, 0 -3px 4px $elevation-penumbra, 0 -3px 3px -2px $elevation-ambient;
+$shadow-up-4  : 0 -2px 4px -1px $elevation-umbra, 0 -4px 5px $elevation-penumbra, 0 -1px 10px $elevation-ambient;
+$shadow-up-5  : 0 -3px 5px -1px $elevation-umbra, 0 -5px 8px $elevation-penumbra, 0 -1px 14px $elevation-ambient;
+$shadow-up-6  : 0 -3px 5px -1px $elevation-umbra, 0 -6px 10px $elevation-penumbra, 0 -1px 18px $elevation-ambient;
+$shadow-up-7  : 0 -4px 5px -2px $elevation-umbra, 0 -7px 10px 1px $elevation-penumbra, 0 -2px 16px 1px $elevation-ambient;
+$shadow-up-8  : 0 -5px 5px -3px $elevation-umbra, 0 -8px 10px 1px $elevation-penumbra, 0 -3px 14px 2px $elevation-ambient;
+$shadow-up-9  : 0 -5px 6px -3px $elevation-umbra, 0 -9px 12px 1px $elevation-penumbra, 0 -3px 16px 2px $elevation-ambient;
+$shadow-up-10 : 0 -6px 6px -3px $elevation-umbra, 0 -10px 14px 1px $elevation-penumbra, 0 -4px 18px 3px $elevation-ambient;
+$shadow-up-11 : 0 -6px 7px -4px $elevation-umbra, 0 -11px 15px 1px $elevation-penumbra, 0 -4px 20px 3px $elevation-ambient;
+$shadow-up-12 : 0 -7px 8px -4px $elevation-umbra, 0 -12px 17px 2px $elevation-penumbra, 0 -5px 22px 4px $elevation-ambient;
+$shadow-up-13 : 0 -7px 8px -4px $elevation-umbra, 0 -13px 19px 2px $elevation-penumbra, 0 -5px 24px 4px $elevation-ambient;
+$shadow-up-14 : 0 -7px 9px -4px $elevation-umbra, 0 -14px 21px 2px $elevation-penumbra, 0 -5px 26px 4px $elevation-ambient;
+$shadow-up-15 : 0 -8px 9px -5px $elevation-umbra, 0 -15px 22px 2px $elevation-penumbra, 0 -6px 28px 5px $elevation-ambient;
+$shadow-up-16 : 0 -8px 10px -5px $elevation-umbra, 0 -16px 24px 2px $elevation-penumbra, 0 -6px 30px 5px $elevation-ambient;
+$shadow-up-17 : 0 -8px 11px -5px $elevation-umbra, 0 -17px 26px 2px $elevation-penumbra, 0 -6px 32px 5px $elevation-ambient;
+$shadow-up-18 : 0 -9px 11px -5px $elevation-umbra, 0 -18px 28px 2px $elevation-penumbra, 0 -7px 34px 6px $elevation-ambient;
+$shadow-up-19 : 0 -9px 12px -6px $elevation-umbra, 0 -19px 29px 2px $elevation-penumbra, 0 -7px 36px 6px $elevation-ambient;
+$shadow-up-20 : 0 -10px 13px -6px $elevation-umbra, 0 -20px 31px 3px $elevation-penumbra, 0 -8px 38px 7px $elevation-ambient;
+$shadow-up-21 : 0 -10px 13px -6px $elevation-umbra, 0 -21px 33px 3px $elevation-penumbra, 0 -8px 40px 7px $elevation-ambient;
+$shadow-up-22 : 0 -10px 14px -6px $elevation-umbra, 0 -22px 35px 3px $elevation-penumbra, 0 -8px 42px 7px $elevation-ambient;
+$shadow-up-23 : 0 -11px 14px -7px $elevation-umbra, 0 -23px 36px 3px $elevation-penumbra, 0 -9px 44px 8px $elevation-ambient;
+$shadow-up-24 : 0 -11px 15px -7px $elevation-umbra, 0 -24px 38px 3px $elevation-penumbra, 0 -9px 46px 8px $elevation-ambient;
+
+$text-shadow-main: 0 1px 5px $elevation-umbra;

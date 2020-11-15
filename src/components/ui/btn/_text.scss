@@ -1,0 +1,73 @@
+// .btn-file {
+//   input[type="file"] {
+//     position: absolute;
+//     width: 1px;
+//     height: 1px;
+//     padding: 0;
+//     overflow: hidden;
+//     clip: rect(0, 0, 0, 0);
+//     white-space: nowrap;
+//     border: 0;
+//   }
+// }
+
+.btn-text {
+  white-space: nowrap;
+  border-radius: $br--btn;
+  transition: all $dur--s;
+
+  @include text-button;
+
+  padding: 6px $gut--n;
+  &.dense {
+    padding: 4px $gut--s;
+  }
+  &.has-leading-icon {
+    display: flex;
+    align-items: center;
+  }
+  &.btn_default {
+    color: $c--light-primary;
+    background-color: $c--btn-default;
+    &:active {
+      background-color: $c--btn-default_active;
+    }
+    &:disabled,
+    &[disabled] {
+      /* color: $c--btn-default_text_disabled;
+      background-color: $c--btn-default_bg_disabled; */
+      opacity: .5;
+    }
+    .theme_light &,
+    &.theme_light {
+      color: $c--dark-primary;
+      background-color: $c--light-tertiary;
+      &:hover {
+        background-color: darken($c--light-tertiary, 10);
+      }
+      &:active {
+        background-color: darken($c--light-tertiary, 20);
+      }
+      &:disabled,
+      &[disabled] {
+        color: lighten($c--dark-primary, 20);
+        background-color: lighten($c--light-tertiary, 20);
+      }
+    }
+  }
+  &.btn_light {
+    color: $c--dark-primary;
+    background-color: $c--light-primary;
+    &:hover {
+      // color: $c--light-default_hover;
+      background-color: $c--light-primary_hover;
+    }
+    &:active {
+      background-color: $c--light-secondary;
+    }
+    &:disabled,
+    &[disabled] {
+      background-color: $c--light-disabled;
+    }
+  }
+}

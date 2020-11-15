@@ -1,0 +1,331 @@
+%hoverThroughPseudoElement {
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  &::before {
+    z-index: 1;
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    content: ''; // border-radius: 50%;
+    // top: -50%;
+    // left: -50%;
+    // width: 200%;
+    // height: 200%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $c--dark-primary;
+    transition: opacity 15ms linear;
+  }
+  &:hover {
+    &::before {
+      opacity: .04;
+    }
+  }
+}
+
+@mixin fx_hover_transitions {
+  transition: transform $dur--n, box-shadow $dur--n;
+  // transform-origin: bottom center;
+}
+
+@mixin fx_hover {
+  transform: translateY(-3px);
+  box-shadow: $bs--fx-hover;
+}
+
+@mixin fx_hover_on_cover {
+  &:hover &__cover {
+    transform: translateY(-3px);
+    box-shadow: $bs--fx-hover;
+  }
+}
+
+@mixin fx_hover_on_primary {
+  &:hover &__primary {
+    font-size: 15px;
+  }
+}
+
+@mixin fx_card_on_hover {
+  &:hover {
+    .grid &,
+    .carousel & {
+      img {
+        transform: scale(1.1);
+      }
+    }
+  }
+  img {
+    transition: transform $dur--xl $tf--ease_out;
+  }
+}
+
+@mixin scroll_x_module_wrap {
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: none; // IE 10+
+  scrollbar-width: none; // Firefox
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@mixin scroll_x_module {
+  display: flex;
+  flex-wrap: nowrap;
+  // padding: 0 $gut--n;
+  width: max-content;
+  >*{
+    flex: 0 0 auto;
+  }
+}
+
+// Теминг
+@mixin theme ($theme, $property, $value) {
+  // Создание селектора (типа `.media.theme-unicorn, .theme-unicorn .media`)
+  &.theme_#{$theme},
+  .theme_#{$theme} & {
+    // Вывод декларации
+    #{$property}: $value;
+  }
+}
+
+@mixin background_stub ($url) {
+  background: url($url) $c--skelet-secondary;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+@mixin img_cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+@mixin overlay {
+  &:hover .n-overlay {
+    opacity: 1;
+  }
+}
+
+@mixin webkit_scroll {
+  &::-webkit-scrollbar {
+    width: 10px;
+    background-color: $c--bg-site;
+  }
+  &::-webkit-scrollbar-thumb {
+    min-height: 50px;
+    background-color: $c--dark-active;
+    border-radius: 5px;
+    border: 2px solid $c--bg-site;
+    &:hover {
+      background-color: $c--dark-border;
+    }
+  }
+}
+
+@mixin absolute_full {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+@mixin text-no-wrap {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin text {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+@mixin card_titles {
+  &__title {
+    margin-top: $gut--s;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+  }
+  &__primary,
+  &__secondary,
+  &__tertiary {
+    @include text-no-wrap;
+    &:empty {
+      position: relative;
+      height: 20px;
+      &::after {
+        content: '';
+        position: absolute;
+        top: 5px;
+        bottom: 5px;
+        left: 0;
+      }
+    }
+  }
+  &__primary {
+    @include text-body-n-bold;
+    color: $c--dark-primary;
+    &:empty {
+      &::after {
+        right: 0;
+        background-color: $c--skelet-primary;
+      }
+    }
+    @include theme('dark', color, $c--light-primary);
+  }
+  &__secondary {
+    @include text-body-s;
+    color: $c--dark-secondary;
+    &:empty {
+      &::after {
+        right: 20%;
+        background-color: $c--skelet-secondary;
+      }
+    }
+    @include theme('dark', color, $c--light-secondary);
+  }
+  &__tertiary {
+    @include text-body-s;
+    color: $c--dark-tertiary;
+    &:empty {
+      &::after {
+        right: 40%;
+        background-color: $c--skelet-tertiary;
+      }
+    }
+    @include theme('dark', color, $c--light-tertiary);
+  }
+}
+
+
+@mixin input-label {
+  display: inline-block;
+  color: black;
+  @include theme('dark', 'color', $c--light);
+  @include text-body-s-bold;
+}
+
+@mixin text-h1 {
+  font-size: rem-calc(40px);
+  line-height: rem-calc(40px);
+  font-weight: 700;
+  letter-spacing: rem-calc(0.41px);
+}
+
+@mixin text-title-l {
+  font-size: rem-calc(32px);
+  line-height: rem-calc(40px);
+  font-weight: 700;
+  letter-spacing: rem-calc(0.41px);
+}
+
+@mixin text-h2 {
+  font-size: rem-calc(24px);
+  line-height: rem-calc(32px);
+  font-weight: 700;
+  letter-spacing: rem-calc(0.34px);
+}
+
+@mixin text-h3 {
+  font-size: rem-calc(18px);
+  line-height: rem-calc(28px);
+  font-weight: 500;
+  letter-spacing: rem-calc(0.35px);
+}
+
+@mixin text-h3-bold {
+  font-size: rem-calc(18px);
+  line-height: rem-calc(28px);
+  font-weight: 700;
+  letter-spacing: rem-calc(0.35px);
+}
+
+@mixin text-body-l {
+  font-size: rem-calc(16px);
+  line-height: rem-calc(24px);
+  font-weight: 400;
+  letter-spacing: rem-calc(0.2px);
+}
+
+@mixin text-body-l-bold {
+  font-size: rem-calc(16px);
+  line-height: rem-calc(24px);
+  font-weight: 600;
+  letter-spacing: rem-calc(0.2px);
+}
+
+@mixin text-body-n {
+  font-size: rem-calc(14px);
+  line-height: rem-calc(20px);
+  font-weight: 400;
+  // letter-spacing: rem-calc(-0.41px);
+}
+
+@mixin text-body-n-bold {
+  font-size: rem-calc(14px);
+  line-height: rem-calc(20px);
+  font-weight: 500;
+  // letter-spacing: rem-calc(-0.41px);
+}
+
+@mixin text-body-s {
+  font-size: rem-calc(13px);
+  line-height: rem-calc(16px);
+  font-weight: 400;
+  // letter-spacing: rem-calc(-0.24px);
+}
+
+@mixin text-body-s-bold {
+  font-size: rem-calc(13px);
+  line-height: rem-calc(16px);
+  font-weight: 500;
+  letter-spacing: rem-calc(0.24px);
+}
+
+@mixin text-body-xs {
+  font-size: rem-calc(12px);
+  line-height: rem-calc(14px);
+  font-weight: 400;
+  // letter-spacing: rem-calc(-0.24px);
+}
+
+@mixin text-body-xs-bold {
+  font-size: rem-calc(12px);
+  line-height: rem-calc(14px);
+  font-weight: 500;
+  // letter-spacing: rem-calc(-0.24px);
+}
+
+@mixin text-button {
+  font-size: rem-calc(14px);
+  line-height: rem-calc(24px);
+  font-weight: 600;
+}
+
+@mixin gutter-x-sm {
+  > * + * {
+    margin-left: $gut--s;
+  }
+}
+
+@mixin gutter-x-md {
+  > * + * {
+    margin-left: $gut--n;
+  }
+}
+
+@mixin gutter-x-lg {
+  > * + * {
+    margin-left: $gut--l;
+  }
+}

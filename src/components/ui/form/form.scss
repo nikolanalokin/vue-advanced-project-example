@@ -1,0 +1,20 @@
+.form {
+  .title {
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+  > * + * {
+    margin-top: $gut--n;
+  }
+}
+
+
+.form-group {
+  & + & {
+    margin-top: $gut--l;
+  }
+  > * + * {
+    margin-top: $gut--n;
+  }
+}

@@ -1,0 +1,56 @@
+.n-switch {
+  display: inline-flex;
+  position: relative;
+  display: inline-flex;
+  cursor: pointer;
+  &.is-row {
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: $br--main;
+  }
+}
+
+.n-switch__label {
+  @include input-label;
+}
+
+.n-switch__handle {
+  position: relative;
+  background-color: rgba($c--dark, .3);
+  border-radius: 10px;
+  height: 20px;
+  width: 40px;
+  padding: 2px;
+  transition: background-color $dur--s;
+  .is-checked & {
+    background-color: $c--success;
+  }
+  .disabled & {
+    background-color: rgba($c--dark, .2);
+    cursor: not-allowed;
+  }
+  &::after {
+    content: '';
+    z-index: 1;
+    position: absolute;
+    margin: 0 20px 0 0;
+    width: 16px;
+    height: 16px;
+    background: white;
+    border-radius: 8px;
+    transition: margin $dur--s;
+    box-shadow: $shadow-1;
+    .is-checked & {
+      margin: 0 0 0 20px;
+    }
+    .disabled & {
+      background-color: rgba($c--light, .9);
+    }
+  }
+}
+
+.n-switch__native {
+  width: 1px;
+  height: 1px;
+}

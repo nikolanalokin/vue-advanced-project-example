@@ -1,0 +1,136 @@
+.n-item
+  min-height: 48px
+  padding: $gut--s $gut--n
+  color: inherit
+  transition: color $dur--s, background-color $dur--s
+  border-radius: $br--main
+
+  &__section
+
+    &--side
+      color: $grey-7
+      fill: $grey-7
+      align-items: flex-start
+      padding-right: $gut--n
+      width: auto
+      min-width: 0
+      max-width: 100%
+
+      > .n-icon
+        font-size: 24px
+
+      > .n-avatar
+        font-size: 40px
+
+    &--avatar
+      color: inherit
+      min-width: 56px
+
+    &--thumbnail
+      img
+        width: 100px
+        height: 56px
+
+    &--nowrap
+      white-space: nowrap
+
+  > .n-item__section--thumbnail:first-child,
+  > .n-focus-helper + .n-item__section--thumbnail
+    margin-left: -$gut--n
+
+  > .n-item__section--thumbnail:last-of-type
+    margin-right: -$gut--n
+
+  &__label
+    line-height: 1.2em !important
+    max-width: 100%
+
+    &--overline
+      color: rgba(0, 0, 0, .7)
+
+    &--caption
+      color: rgba(0, 0, 0, .54)
+      
+    &--primary
+      @include text-body-n-bold
+      opacity: 1
+      
+    &--secondary
+      @include text-body-s
+      opacity: .7
+      
+    &--tertiary
+      @include text-body-s
+      opacity: .54
+
+    &--header
+      color: $grey-9
+      padding: $gut--n
+      font-size: 0.875rem
+      line-height: 1.25rem
+      letter-spacing: 0.01786em
+
+      .n-separator--spaced + &, .n-list--padding &
+        padding-top: $gut--s
+
+    & + .n-item__label
+      margin-top: 4px
+
+.n-item__section--main
+  width: auto
+  min-width: 0
+  max-width: 100%
+  flex: 10*4 1 0%
+
+  & + &
+    margin-left: $gut--s
+
+  ~ .n-item__section--side
+    align-items: flex-end
+    padding-right: 0
+    padding-left: $gut--n
+
+  &.n-item__section--thumbnail
+    margin-left: 0
+    margin-right: -$gut--n
+
+.n-list
+  &--bordered
+    border: 1px solid $separator-color
+  &--separator
+    > .n-item-type + .n-item-type
+      border-top: 1px solid $separator-color
+  &--padding
+    padding: $gut--s 0
+
+.n-list--dense > .n-item, .n-item--dense
+  min-height: 32px
+  padding: 2px $gut--n
+
+.n-list--dark.n-list--separator
+  > .n-item-type + .n-item-type
+    border-top-color: $separator-dark-color
+
+.n-list--dark, .n-item--dark
+  color: white
+  border-color: $separator-dark-color
+
+  .n-item__section--side:not(.n-item__section--avatar)
+    color: rgba(255, 255, 255, .7)
+
+  .n-item__label
+    &--header
+      color: rgba(255, 255, 255, .64)
+    &--overline, &--caption
+      color: rgba(255, 255, 255, .8)
+
+.n-item
+  position: relative
+
+  &--active
+    color: $c--primary
+    color: var(--n-color-primary)
+
+  // &.n-router-link--active, &--active
+  //   color: $c--primary
+  //   color: var(--n-color-primary)

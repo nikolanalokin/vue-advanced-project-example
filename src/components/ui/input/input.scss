@@ -1,0 +1,37 @@
+.n-textarea {
+  .n-field__control {
+    min-height: 36px;
+    height: auto;
+  }
+
+  .n-field__control-container {
+    padding-top: 2px;
+    padding-bottom: 2px;
+  }
+
+  .n-field__native, .n-field__prefix, .n-field__suffix {
+    line-height: 20px;
+  }
+
+  .n-field__native {
+    resize: vertical;
+    // padding-top: 17px;
+    // min-height: 52px;
+  }
+
+  &.n-field_readonly .n-field__native {
+    pointer-events: auto;
+  }
+
+  &_autogrow {
+    .n-field__native {
+      resize: none;
+    }
+  }
+}
+
+.n-textarea.disabled {
+  .n-field__native {
+    resize: none;
+  }
+}

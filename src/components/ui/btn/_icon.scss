@@ -1,0 +1,95 @@
+
+.btn-icon {
+  display: inline-flex;
+  transition: color $dur--s, background-color $dur--s;
+  user-select: none;
+  padding: 6px;
+  background-color: $c--transparent;
+  border-radius: $br--btn;
+  &.no-focus {
+    box-shadow: none;
+  }
+  &.dense {
+    padding: 4px;
+  }
+  &.btn_default {
+    color: $c--dark-secondary;
+    @include theme('dark', 'color', $c--light-primary);
+    &:hover {
+      background-color: $c--dark-flash;
+      @include theme('dark', 'background-color', $c--light-flash);
+    }
+    &:active {
+      background-color: $c--dark-active;
+      @include theme('dark', 'background-color', $c--light-active);
+    }
+  }
+  &.btn_cover {
+    border-radius: $br--btn;
+    color: $c--light;
+    background-color: rgba($c--dark, 0.5);
+  }
+  &.btn_simple {
+    padding: 0;
+    color: $c--dark-tertiary;
+    &:hover {
+      color: $c--dark-secondary;
+    }
+    &:active {
+      color: $c--dark-primary;
+    }
+    .theme_dark &,
+    &.theme_dark {
+      color: $c--light-tertiary;
+      &:hover {
+        color: $c--light-secondary;
+      }
+      &:active {
+        color: $c--light-primary;
+      }
+    }
+  }
+  &.btn_light {
+    color: $c--light-secondary;
+    &:hover {
+      color: $c--light-primary;
+    }
+  }
+  &.active {
+    color: $c--secondary !important;
+    &:hover {
+      color: $c--secondary !important;
+    }
+    &:active {
+      color: $c--secondary !important;
+    }
+  }
+  &:disabled {
+    opacity: .5;
+    &:hover {
+      background-color: unset !important;
+    }
+    &:active {
+      background-color: unset !important;
+    }
+  }
+}
+
+.btn-icon-text {
+  display: flex;
+  align-items: center;
+  @include text-body-n-bold;
+  .comment & {
+    @include text-body-s-bold;
+  }
+  padding: $gut--xs;
+  border-radius: $br--btn;
+  transition: background-color $dur--s, color $dur--s;
+  position: relative;
+  > span {
+    margin-left: $gut--xs;
+  }
+  &.selected {
+    font-weight: 700;
+  }
+}

@@ -1,0 +1,39 @@
+.btn-cover {
+  display: flex;
+  position: relative;
+  border-radius: $br--main;
+  overflow: hidden;
+  cursor: pointer;
+
+  &.is-empty {
+    border: 2px dashed $c--dark-border;
+    &:hover {
+      .btn-cover__overlay {
+        background: $c--dark-flash;
+      }
+    }
+  }
+
+  &.is-filled {
+    .btn-cover__overlay {
+      opacity: 0;
+    }
+    &:hover {
+      .btn-cover__overlay {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.btn-cover__overlay {
+  background: $c--light-secondary;
+  transition: opacity $dur--s, background $dur--s;
+  padding: $gut--s;
+}
+
+.btn-cover__cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

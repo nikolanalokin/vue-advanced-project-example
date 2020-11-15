@@ -1,0 +1,127 @@
+h1, h2, h3, h4, h5, h6, p
+  margin: 0
+p, .text
+  @include text-body-n
+  &.center
+    text-align: center
+
+// typography
+.text
+  &-center
+    text-align: center
+  &-left
+    text-align: left
+  &-right
+    text-align: right
+  &-justify
+    text-align: justify
+  &-pre
+    white-space: pre
+  &-pre-line
+    white-space: pre-line
+  &-pre-wrap
+    white-space: pre-wrap
+
+  &-h1
+    @include text-h1
+  &-title-l
+    @include text-title-l
+  &-h2
+    @include text-h2
+  &-h3
+    @include text-h3
+    &-bold
+      @include text-h3-bold
+  &-body
+    &-l
+      @include text-body-l
+      &-bold
+        @include text-body-l-bold
+    &-n
+      @include text-body-n
+      &-bold
+        @include text-body-n-bold
+    &-s
+      @include text-body-s
+      &-bold
+        @include text-body-s-bold
+    &-xs
+      @include text-body-xs
+      &-bold
+        @include text-body-xs-bold
+
+  &.online
+    color: $c--online
+  &.close-soon
+    color: $c--close-soon
+  &.closed
+    color: $c--closed
+  &-color
+    &-p
+      color: $c--dark-primary
+      @include theme('dark', 'color', $c--light-primary)
+    &-s
+      color: $c--dark-secondary
+      @include theme('dark', 'color', $c--light-secondary)
+    &-t
+      color: $c--dark-tertiary
+      @include theme('dark', 'color', $c--light-tertiary)
+
+.label
+  line-height: 20px
+  font-weight: 500
+  color: $c--dark-secondary
+  &_input
+    padding: 8px 0
+
+.input-label
+  @include input-label
+
+.text-decoration-none,
+.link-underline .text-decoration-none,
+.link-underline:hover .text-decoration-none
+  text-decoration: none !important
+
+.doc-format
+  text-align: justify
+  h1
+    font-size: 24px
+    // margin: 12px 0
+    margin: 0 0 1em
+  h2
+    font-size: 21px
+    // margin: 8px 0
+    margin: 1em 0
+  h3
+    font-size: 18px
+    // margin: 4px 0
+    margin: 16px 0 12px
+  b
+    font-weight: 700
+  .p
+    font-size: 16px
+    line-height: 20px
+    // padding: 8px 0
+    margin: 20px 0
+    div
+      margin: 12px 0
+  .ul, .ol
+    // padding: 8px 0 8px 24px
+    padding-left: 24px
+    margin-bottom: 1em 0
+  li
+    font-size: 14px
+    line-height: 20px
+    margin: .5em 0
+
+  // ol
+  //   // убираем стандартную нумерацию
+  //   list-style: none
+  //   // Идентифицируем счетчик и даем ему имя li. Значение счетчика не указано - по умолчанию оно равно 0
+  //   counter-reset: li
+  //   li:before
+  //     // Определяем элемент, который будет нумероваться — li. Псевдоэлемент before указывает, что содержимое, вставляемое при помощи свойства content, будет располагаться перед пунктами списка. Здесь же устанавливается значение приращения счетчика (по умолчанию равно 1)
+  //     counter-increment: li
+  //     // С помощью свойства content выводится номер пункта списка. counters() означает, что генерируемый текст представляет собой значения всех счетчиков с таким именем. Точка в кавычках добавляет разделяющую точку между цифрами, а точка с пробелом добавляется перед содержимым каждого пункта списка
+  //     content: counters(li,".") ". "
+    

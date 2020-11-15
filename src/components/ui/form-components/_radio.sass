@@ -1,0 +1,99 @@
+$radio-transition: .22s cubic-bezier(0,0,.2,1) 0ms
+
+.n-radio
+  vertical-align: middle
+
+  &__bg
+    left: 2px
+    top: 2px
+    width: 20px
+    height: 20px
+
+  &__native
+    width: 1px
+    height: 1px
+
+  &__outer-circle
+    border-width: 2px
+    border-style: solid
+    border-radius: 50%
+
+  &__inner-circle
+    border-width: 10px
+    border-style: solid
+    border-radius: 50%
+    transform: scale3d(0, 0, 0)
+    transition: transform $radio-transition
+
+  &__label
+    padding-left: 4px
+    padding-right: 0
+    font-size: 14px
+    line-height: 20px
+
+  &.reverse &__label
+    padding-right: 4px
+    padding-left: 0
+
+  &__inner
+    width: 24px
+    min-width: 24px
+    height: 24px
+    padding: 2px
+    outline: 0
+    border-radius: 50%
+    color: rgba(0, 0, 0, .54)
+
+    &--active
+      color: $c--primary
+      color: var(--n-color-primary)
+      .n-radio__inner-circle
+        transform: scale3d(.5, .5, .5)
+
+  &.disabled
+    opacity: .75 !important
+
+  &--dark
+    .n-radio__inner
+      color: rgba(255, 255, 255, .7)
+      &:before
+        opacity: .32 !important
+      &--active
+        color: $c--primary
+        color: var(--n-color-primary)
+
+  &--dense
+
+    .n-radio__bg
+      left: 1px
+      top: 1px
+      width: 18px
+      height: 18px
+
+    .n-radio__inner
+      width: 20px
+      min-width: 20px
+      height: 20px
+
+// body.desktop
+
+.n-radio
+  &__inner:before
+    content: ''
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    border-radius: 50%
+    background: currentColor
+    opacity: .12
+    transform: scale3d(0, 0, 0)
+    transition: transform $dur--s
+
+  &:focus:not(.disabled)
+    .n-radio__inner:before
+      transform: scale3d(1, 1, 1)
+
+  &--dense:focus:not(.disabled) .n-radio__inner:before
+    transform: scale3d(2, 2, 2)

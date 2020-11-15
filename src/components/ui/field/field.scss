@@ -1,0 +1,426 @@
+.n-field {
+  @include text-body-n;
+
+  &_with-bottom {
+    padding-bottom: 8px;
+  }
+
+  &_item-aligned {
+    padding: 8px 16px;
+
+    .n-field__before {
+      min-width: 56px;
+    }
+  }
+
+  &.is-labeled {
+    padding-top: 24px;
+  }
+
+  &__before,
+  &__prepend {
+    padding-right: 12px;
+  }
+
+  /* &.is-outlined {
+    &.is-labeled {
+      padding-top: 8px;
+    }
+  } */
+
+  &__after,
+  &__append {
+    padding-left: 12px;
+  }
+
+  &__append + &__append {
+    padding-left: 4px;
+  }
+
+  &__inner {
+    text-align: left;
+  }
+
+  &__native,
+  &__prefix,
+  &__suffix {
+    text-decoration: inherit;
+    text-transform: inherit;
+    border: none;
+    border-radius: 0;
+    background: none;
+    color: black;
+    outline: 0;
+    padding: 8px 0;
+    @include text-body-n;
+  }
+
+  &__native {
+    width: 100%;
+    min-width: 0; // needed for FF
+    outline: 0 !important; // needed for FF
+
+    &[type="file"] {
+      line-height: 1em; // needed for Chrome type="file"
+    }
+  }
+
+  &__prefix,
+  &__suffix {
+    transition: opacity $dur--s;
+  }
+
+  &__prefix {
+    padding-right: 4px;
+  }
+  &__suffix {
+    padding-left: 4px;
+  }
+
+  &_readonly,
+  &_disabled {
+    .n-field__control {
+      pointer-events: none;
+    }
+  }
+
+  &__control {
+    box-shadow: none;
+    outline: none;
+
+    padding: 0 8px;
+    background-color: $c--input-bg;
+    @include theme('dark', 'background-color', $c--input-bg_light);
+    .is-error & {
+      background-color: mix($c--danger, $c--input-bg, 16%);
+      @include theme('dark', 'background-color', mix($c--danger, $c--input-bg_light, 16%));
+    }
+    .is-success & {
+      background-color: mix($c--success, $c--input-bg, 16%);
+      @include theme('dark', 'background-color', mix($c--success, $c--input-bg_light, 16%));
+    }
+    .is-warning & {
+      background-color: mix($c--warning, $c--input-bg, 16%);
+      @include theme('dark', 'background-color', mix($c--warning, $c--input-bg_light, 16%));
+    }
+
+    &::after {
+      z-index: 3;
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      right: 50%;
+      background-color: $c--transparent;
+      transition: left $dur--n $tf--ease_out, right $dur--n $tf--ease_out, background-color $dur--n;
+      will-change: left, right, background-color;
+      height: 2px;
+      border-radius: 0 0 $br--input $br--input;
+    }
+  }
+
+  &.is-focused {
+    .n-field__control {
+      background-color: $c--input-bg_hover;
+      @include theme('dark', 'background-color', $c--input-bg_hover_light);
+  
+      &::after {
+        left: 0;
+        right: 0;
+        background-color: $c--primary;
+      }
+    }
+    &.is-error {
+      .n-field__control::after {
+        background-color: $c--danger;
+      }
+    }
+    &.is-success {
+      .n-field__control::after {
+        background-color: $c--success;
+      }
+    }
+    &.is-warning { 
+      .n-field__control::after {
+        background-color: $c--warning;
+      }
+    }
+  }
+
+  &_auto-height {
+    .n-field__control {
+      height: auto;
+    }
+
+    .n-field__control,
+    .n-field__native {
+      min-height: 36px;
+    }
+
+    .n-field__native {
+      align-items: center;
+    }
+
+    .n-field__control-container {
+      padding-top: 0;
+    }
+
+    .n-field__native,
+    .n-field__prefix,
+    .n-field__suffix {
+      line-height: 20px;
+    }
+  }
+
+  &_with-bottom {}
+
+}
+
+.n-field__before {}
+
+.n-field__after {}
+
+.n-field__inner {}
+
+.n-field__label {
+  @include text-body-n-bold;
+  position: absolute;
+  top: -24px;
+  left: 0;
+  right: 0;
+  // width: 100%;
+  transition: $dur--s;
+  .is-floating & {
+    transform: translate(8px, 32px);
+  }
+  .is-floating.is-focused &,
+  .is-floating:not(.is-empty) & {
+    transform: translate(0, 0);
+  }
+}
+
+.n-field__control {    
+  will-change: background-color;
+  border-radius: $br--input;
+  transition: background-color $dur--n;
+}
+
+.n-field__marginal {
+  height: 36px;
+  color: $c--dark-secondary;
+  font-size: 24px;
+  transition: color $dur--s;
+
+  >*+* {
+    margin-left: 2px;
+  }
+}
+
+.n-field__prepend {}
+
+.n-field__append {}
+
+.n-field__control-container {
+  height: inherit;
+}
+
+.n-field__native {}
+
+.n-field__prefix {}
+
+.n-field__suffix {}
+
+.n-field__bottom {
+  font-size: 12px;
+  min-height: 12px;
+  line-height: 1;
+  color: $c--dark-secondary;
+  padding: 8px 12px 0;
+  .is-error & {
+    color: rgba($c--danger, .84);
+  }
+  .is-success & {
+    color: rgba($c--success, .84);
+  }
+  .is-warning & {
+    color: rgba($c--warning, .84);
+  }
+}
+
+.n-field__message {
+  line-height: 1;
+
+  >div {
+    word-break: break-word;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+
+    &+div {
+      margin-top: 4px;
+    }
+  }
+}
+
+.n-field__counter {
+  padding-left: 8px;
+  line-height: 1;
+}
+
+/* 
+.n-field {
+  z-index: 1;
+  position: relative;
+  display: inline-flex;
+  align-items: flex-end;
+  width: 100%;
+  will-change: background-color;
+  border-radius: $br--input;
+  transition: background-color $dur--n;
+
+  background-color: $c--input-bg;
+  @include theme('dark', 'background-color', $c--input-bg_light);
+
+  &:not(.is-disabled):not(.is-readonly):hover {
+    background-color: $c--input-bg_hover;
+    @include theme('dark', 'background-color', $c--input-bg_hover_light);
+
+    &.is-error {
+      background-color: mix($c--danger, $c--input-bg, 16%);
+      @include theme('dark', 'background-color', mix($c--danger, $c--input-bg_light, 16%));
+    }
+
+    &.is-success {
+      background-color: mix($c--success, $c--input-bg, 16%);
+      @include theme('dark', 'background-color', mix($c--success, $c--input-bg_light, 16%));
+    }
+
+    &.is-warning {
+      background-color: mix($c--warning, $c--input-bg, 16%);
+      @include theme('dark', 'background-color', mix($c--warning, $c--input-bg_light, 16%));
+    }
+  }
+
+  &::after {
+    z-index: 3;
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 100%;
+    background-color: $c--transparent;
+    transition: right $dur--n $tf--ease_in, background-color $dur--n;
+    will-change: right, background-color;
+    height: 2px;
+  }
+
+  &.is-focused {
+    background-color: $c--input-bg_hover;
+    @include theme('dark', 'background-color', $c--input-bg_hover_light);
+
+    &::after {
+      background-color: $c--primary;
+    }
+  }
+
+  &.is-error {
+    background-color: mix($c--danger, $c--input-bg, 8%);
+    @include theme('dark', 'background-color', mix($c--danger, $c--input-bg_light, 8%));
+
+    &::after {
+      background-color: $c--danger;
+    }
+  }
+
+  &.is-success {
+    background-color: mix($c--success, $c--input-bg, 8%);
+    @include theme('dark', 'background-color', mix($c--success, $c--input-bg_light, 8%));
+
+    &::after {
+      background-color: $c--success;
+    }
+  }
+
+  &.is-warning {
+    background-color: mix($c--warning, $c--input-bg, 8%);
+    @include theme('dark', 'background-color', mix($c--warning, $c--input-bg_light, 8%));
+
+    &::after {
+      background-color: $c--warning;
+    }
+  }
+
+  &.is-focused,
+  &.is-error,
+  &.is-success,
+  &.is-warning {
+    &::after {
+      right: 0;
+      transition: $dur--n $tf--ease_out;
+    }
+  }
+
+  &.is-disabled {
+    background-color: $c--input-bg_disabled;
+    @include theme('dark', 'background-color', $c--input-bg_disabled_light);
+  }
+}
+
+.n-field__input,
+.n-field__textarea {
+  @include text-body-n;
+  padding: $gut--s;
+  width: 100%;
+  border: none;
+  background: none;
+  outline: 0;
+  color: black;
+  @include theme('dark', 'color', $c--light);
+
+  &::placeholder {
+    font-weight: 400;
+  }
+
+  &[readonly] {
+    cursor: default;
+  }
+}
+
+.n-field__textarea {
+  min-height: 56px;
+  max-height: 300px;
+}
+
+.n-field__prefix {
+  position: absolute;
+  left: 0px;
+  top: $gut--s;
+  padding-left: $gut--s;
+  @include text-body-n;
+  cursor: text;
+  pointer-events: none;
+  color: $c--dark-secondary;
+  @include theme('dark', 'color', $c--light-secondary);
+}
+
+.n-field-extra {
+  margin-top: $gut--xs;
+  padding: 0 $gut--s;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  @include text-body-s;
+
+  &__helper {
+    cursor: default;
+    color: $c--dark-secondary;
+    @include theme('dark', 'color', $c--light-secondary);
+  }
+
+  &__counter {
+    margin-left: $gut--s;
+    flex-shrink: 0;
+    cursor: default;
+    color: $c--dark-primary;
+    @include theme('dark', 'color', $c--light-primary);
+  }
+} */

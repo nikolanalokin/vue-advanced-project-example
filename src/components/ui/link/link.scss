@@ -1,0 +1,36 @@
+.link {
+  cursor: pointer;
+  color: $c--primary;
+  &:hover {
+    color: lighten($c--primary, 10);
+  }
+  &:active {
+    color: lighten($c--primary, 20);
+  }
+}
+
+.link-underline {
+  cursor: pointer;
+  color: inherit;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.link-title {
+  cursor: pointer;
+  color: $c--dark-primary;
+  &:hover {
+    color: $c--primary;
+  }
+}
+
+.link-reset {
+  color: inherit;
+  &:hover {
+    color: inherit;
+  }
+  &:active {
+    color: inherit;
+  }
+}

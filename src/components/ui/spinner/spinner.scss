@@ -1,0 +1,40 @@
+.spinner {
+  display: inline-block;
+  vertical-align: middle;
+  border-style: solid;
+  transform: translateZ(0);
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  transition: all 0.2s ease;
+  cursor: unset;
+  .hidden > & {
+    max-width: 0 !important;
+    max-height: 0 !important;
+    border-width: 0 !important;
+    margin: 0 !important;
+    opacity: 0 !important;
+  }
+}
+@keyframes forward {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+}
+@keyframes backward {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+.n-spinner {
+  vertical-align: middle;
+}

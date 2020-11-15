@@ -1,0 +1,24 @@
+$toolbar-min-height           : 48px
+$toolbar-padding              : 0 12px
+  
+.n-toolbar
+  position: relative
+  padding: $toolbar-padding
+  min-height: $toolbar-min-height
+  width: 100%
+
+  .n-avatar
+    font-size: 38px
+
+.n-toolbar__title
+  flex: 1 1 0%
+  min-width: 1px
+  max-width: 100%
+  @include text-body-l-bold
+  padding: 0 12px
+  align-self: center
+
+  &:first-child
+    padding-left: 0
+  &:last-child
+    padding-right: 0

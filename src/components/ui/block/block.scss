@@ -1,0 +1,69 @@
+@mixin block {
+  border-radius: $br--main;
+  background-color: white;
+  box-shadow: $bs--border-outer;
+}
+
+.n-block {
+  // display: grid;
+  // z-index: 2;
+  border: 0;
+  @include block;
+  // position: relative;
+
+  &__header {
+    padding: $gut--s $gut--n;
+    background-color: $c--dark;
+    color: $c--light;
+    @include text-h3;
+    border-radius: $br--main $br--main 0 0;
+    text-align: center;
+  }
+  &__body {
+    padding: $gut--n;
+  }
+  &__close {
+    display: flex;
+    position: absolute;
+    top: 14px;
+    right: 12px;
+  }
+}
+
+.n-block-header {
+  padding: 15px 20px;
+  overflow: hidden;
+  border-radius: $br--main $br--main 0 0;
+}
+
+.n-block-hint {
+  // @extend .ui-modal-hint;
+}
+
+.n-block-body {
+  padding: 20px;
+}
+
+.n-block-title {
+  // @extend .ui-modal-title;
+  text-align: center;
+}
+
+.n-block-subtitle {
+  font-size: 18px;
+  line-height: 20px;
+  margin: 0 10px;
+  padding: 10px;
+  &:first-child {
+    margin-top: 10px;
+  }
+}
+
+.n-block-footer {
+  // @extend .ui-modal-footer;
+  display: flex;
+  justify-content: center;
+  >*+* {
+    margin-left: 10px;
+  }
+}

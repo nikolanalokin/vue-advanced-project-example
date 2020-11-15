@@ -1,0 +1,24 @@
+.progress-bar {
+  height: 20px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  background-color: rgba($c--dark, .1);
+  @include theme('dark', background-color, rgba($c--light, .1));
+  &.is-rounded {
+    border-radius: $br--main;
+  }
+}
+
+.progress-bar__line {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  background-color: rgba($c--dark, .9);
+  background-color: currentColor;
+  transition: $dur--s;
+  @include theme('dark', background-color, rgba($c--light, .9));
+}

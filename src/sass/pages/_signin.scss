@@ -1,0 +1,136 @@
+.signin-layout {
+  background-color: $c--dark-primary;
+}
+
+.signin-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 48px 0;
+}
+
+.signin-title {
+  color: $c--light-primary;
+  &__logo {
+    width: auto;
+    transform-origin: 50% 100%;
+
+    > img {
+      display: block;
+      height: 50px;
+      margin: 0 auto;
+    }
+  }
+
+  &__subtitle {
+    margin: 16px 0 0;
+    font-size: 21px;
+    line-height: 28px;
+    font-weight: 300;
+    text-align: center;
+    user-select: none;
+    transform-origin: 50% 0;
+  }
+}
+
+.signin-app-btn {
+  padding: $gut--n;
+  fill: $c--light-secondary;
+
+  &:hover {
+    fill: $c--light-primary;
+  }
+
+  svg {
+    height: 36px;
+    width: 36px;
+  }
+}
+
+$first-step-dur: 2s;
+$second-step-delay: $first-step-dur * (1 - 1 / 6);
+.signin-title {
+  animation-name: a__singin-title;
+  animation-duration: 1.8s;
+  animation-direction: normal;
+  animation-fill-mode: both;
+  &__logo {}
+  &__subtitle {
+    animation-name: a__singin-subtitle;
+    animation-duration: .8s;
+    animation-delay: .6s;
+    animation-direction: normal;
+    animation-fill-mode: both;
+  }
+}
+.signin-forms {
+  animation-name: a__singin-forms;
+  animation-duration: .4s;
+  animation-delay: 1.8s;
+  animation-direction: normal;
+  animation-fill-mode: both;
+}
+.signin-icons {
+  animation-name: a__singin-icons;
+  animation-duration: .4s;
+  animation-delay: 1.8s;
+  animation-direction: normal;
+  animation-fill-mode: both;
+}
+.signin-footer {
+  animation-name: a__singin-footer;
+  animation-duration: .4s;
+  animation-delay: 1.8s;
+  animation-direction: normal;
+  animation-fill-mode: both;
+}
+
+@keyframes a__singin-title {
+  0% {
+    opacity: 0;
+    transform: translateY(25vh) scale(1.6);
+  }
+  30% {
+    opacity: 1;
+  }
+  70% {
+    transform: translateY(25vh) scale(1.6);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+@keyframes a__singin-subtitle {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes a__singin-forms {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+@keyframes a__singin-icons {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes a__singin-footer {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

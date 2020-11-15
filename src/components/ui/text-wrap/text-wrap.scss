@@ -1,0 +1,13 @@
+.n-text-wrap {
+  @include text-body-n;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  word-wrap: break-word;
+  white-space: pre-line;
+  &.is-inline {
+
+  }
+  &.is-contents {
+    white-space: inherit;
+  }
+}

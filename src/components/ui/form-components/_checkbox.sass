@@ -1,0 +1,126 @@
+$checkbox-transition: .22s cubic-bezier(0,0,.2,1) 0ms
+
+.n-checkbox
+  vertical-align: middle
+
+  &__bg
+    left: 2px
+    top: 2px
+    right: auto
+    bottom: 0
+    width: 20px
+    height: 20px
+    border: 2px solid currentColor
+    border-radius: 50%
+    transition: background $checkbox-transition
+
+  &__native
+    width: 1px
+    height: 1px
+
+  &__label
+    font-size: 14px
+    line-height: 20px
+    padding-left: 8px
+
+  &.reverse &__label
+    padding-right: 8px
+
+  &__check
+    color: white
+
+    path
+      stroke: currentColor
+      stroke-width: 3.12px
+      stroke-dashoffset: 29.78334
+      stroke-dasharray: 29.78334
+
+  &__check-indet
+    width: 100%
+    height: 0
+    left: 0
+    top: 50%
+    border-color: white
+    border-width: 1px
+    border-style: solid
+    transform: translate3d(0, -50%, 0) rotate3d(0, 0, 1, -280deg) scale3d(0, 0, 0)
+
+  &__inner
+    width: 24px
+    min-width: 24px
+    height: 24px
+    padding: 2px
+    outline: 0
+    border-radius: 50%
+    color: rgba(0, 0, 0, .24)
+
+    &--active, &--indeterminate
+      color: $c--primary
+      color: var(--n-color-primary)
+      .n-checkbox__bg
+        background: currentColor
+
+    &--active
+      path
+        stroke-dashoffset: 0
+        transition: stroke-dashoffset .18s cubic-bezier(.4,0,.6,1) 0ms
+
+    &--indeterminate
+      .n-checkbox__check-indet
+        transform: translate3d(0, -50%, 0) rotate3d(0, 0, 1, 0) scale3d(1, 1, 1)
+        transition: transform $checkbox-transition
+
+  &.disabled
+    opacity: .75 !important
+
+  &--dark
+    .n-checkbox__inner
+      color: rgba(255, 255, 255, .7)
+      &:before
+        opacity: .32 !important
+      &--active, &--indeterminate
+        color: $c--primary
+        color: var(--n-color-primary)
+
+  &--dense
+
+    .n-checkbox__inner
+      width: 20px
+      min-width: 20px
+      height: 20px
+      padding: 0
+
+    .n-checkbox__label
+      padding-left: 8px
+
+    .n-checkbox__bg
+      left: 1px
+      top: 1px
+      width: 18px
+      height: 18px
+
+// body.desktop
+
+.n-checkbox
+  &__inner:before
+    content: ''
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    border-radius: 50%
+    background: currentColor
+    opacity: .06
+    transform: scale3d(0, 0, 0)
+    transition: transform $dur--s
+
+  &:focus:not(.disabled)
+    .n-checkbox__inner:before
+      transform: scale3d(1, 1, 1)
+
+  &--dense:focus:not(.disabled) .n-checkbox__inner:before
+    transform: scale3d(2, 2, 2)
+
+.n-table--dense .n-checkbox--dense:focus:not(.disabled) .n-checkbox__inner:before
+  transform: scale3d(1.4, 1.4, 1.4)

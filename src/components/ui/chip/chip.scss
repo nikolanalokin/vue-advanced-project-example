@@ -1,0 +1,166 @@
+.chip {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  will-change: transform, opacity;
+  border-radius: 16px;
+  margin: $gut--xs;
+  color: $c--dark-primary;
+  @include text-body-s;
+  @include theme('dark', 'color', $c--light-primary);
+  vertical-align: middle;
+  outline: none;
+  cursor: pointer;
+  overflow: hidden;
+  transition: background-color $dur--s;
+  background-color: $c--dark-flash;
+  @include theme('dark', 'background-color', $c--light-flash);
+  /* &:hover {
+    background-color: $c--dark-flash;
+    @include theme('dark', 'background-color', $c--light-flash);
+  }
+  &:active {
+    background-color: $c--dark-active;
+    @include theme('dark', 'background-color', $c--light-active);
+  } */
+}
+
+.chip__thumbnail {
+  display: flex;
+}
+
+.chip__text {
+  @include text-no-wrap;
+  @include text-body-n;
+  padding: 2px $gut--s;
+  user-select: none;
+}
+
+.chip__action {
+  display: flex;
+  color: $c--dark-secondary;
+  transition: color $dur--s, transform $dur--xs;
+  @include theme('dark', 'color', $c--light-secondary);
+}
+
+
+$chip-height: 32px;
+
+.n-chip {
+  vertical-align: middle;
+  border-radius: 16px;
+  outline: 0;
+  position: relative;
+
+  height: $chip-height;
+  margin: 4px;
+
+  background: $c--dark-flash;
+  color: black;
+
+  @include theme('dark', 'background', $c--light-flash);
+  @include theme('dark', 'color', white);
+
+  font-size: 14px;
+
+  padding: 7px 12px;
+  transition: .3s;
+
+  &_colored {
+    .n-chip__icon {
+      color: inherit;
+    }
+  }
+
+  &_selected {
+    .n-avatar {
+      visibility: hidden !important;
+      width: 10px;
+    }
+  }
+
+  .n-avatar {
+    font-size: $chip-height;
+    height: $chip-height !important;
+    width: $chip-height !important;
+    margin-left: -12px;
+    margin-right: 6px;
+  }
+
+  &__icon {
+    color: $c--dark-secondary;
+    @include theme('dark', 'color', $c--light-secondary);
+    font-size: 20px;
+    margin: -4px;
+
+    &_left {
+      margin-right: 6px;
+    }
+    &_right {
+      margin-left: 6px;
+    }
+    &_remove {
+      margin-left: 6px;
+      margin-right: -6px;
+      opacity: .6;
+      transition: .3s;
+      outline: none;
+
+      &:hover,
+      &:focus {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__content {
+    white-space: nowrap;
+  }
+
+  &_dense {
+    border-radius: 12px;
+    height: 24px;
+    font-size: 12px;
+    padding: 0 6px;
+
+    .n-avatar {
+      font-size: 24px;
+      height: 24px !important;
+      width: 24px !important;
+      margin-left: -6px;
+      margin-right: 4px;
+    }
+
+    .n-chip__icon {
+      font-size: 14px;
+      margin: 0;
+      &_left {
+        margin-right: 5px;
+      }
+      &_right {
+        margin-left: 5px;
+      }
+      &_remove {
+        margin-left: 5px;
+        margin-right: -2px;
+      }
+    }
+
+    &.n-chip_selected {
+      .n-avatar {
+        width: 5px;
+      }
+    }
+  }
+
+  &_square {
+    border-radius: $br--main;
+    .n-avatar {
+      border-radius: ($br--main - 1px) 0 0 ($br--main - 1px);
+    }
+  }
+}
+
+.n-chip_clickable:focus {
+  box-shadow: $shadow-1;
+}
