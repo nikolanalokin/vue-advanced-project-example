@@ -7,5 +7,5 @@ module.exports = {
   productionSourceMap: false,
   parallel: undefined,
   css: undefined,
-  publicPath: '/dice-poker-www/'
+  publicPath: '/vue-advanced-project-example/'
 }
