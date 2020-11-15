@@ -19,3 +19,5 @@ npm run build
 ```
 npm run lint
 ```
+
+[Demo](https://nikolanalokin.github.io/vue-advanced-project-example/)
